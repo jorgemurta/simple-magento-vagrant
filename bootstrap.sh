@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 SAMPLE_DATA=$1
-MAGE_VERSION="1.9.1.0"
+MAGE_VERSION="1.9.2.2"
 DATA_VERSION="1.9.0.0"
 
 # Update Apt
@@ -69,7 +69,7 @@ mysql -u root -e "FLUSH PRIVILEGES"
 # Download and extract
 if [[ ! -f "/vagrant/httpdocs/index.php" ]]; then
   cd /vagrant/httpdocs
-  wget http://www.magentocommerce.com/downloads/assets/${MAGE_VERSION}/magento-${MAGE_VERSION}.tar.gz
+  wget -O magento-${MAGE_VERSION}.tar.gz "https://www.dropbox.com/s/394wv49m5njqc7n/magento-${MAGE_VERSION}.tar.gz?dl=1"
   tar -zxvf magento-${MAGE_VERSION}.tar.gz
   mv magento/* magento/.htaccess .
   chmod -R o+w media var
