@@ -116,3 +116,26 @@ cd /vagrant/httpdocs
 wget https://raw.github.com/netz98/n98-magerun/master/n98-magerun.phar
 chmod +x ./n98-magerun.phar
 sudo mv ./n98-magerun.phar /usr/local/bin/
+
+
+# Install modman
+# --------------------
+cd ~
+wget --no-check-certificate https://raw.github.com/colinmollenhour/modman/master/modman
+chmod +x ./modman
+sudo mv ./modman /usr/local/bin/
+source .bashrc
+
+# Install git
+# --------------------
+sudo apt-get install git -y
+
+# Install JorgeMurta/SimpleModule module
+# --------------------
+cd /vagrant/httpdocs
+modman init
+cd .modman
+git clone https://github.com/jorgemurta/simple-magento-module.git
+cd /vagrant/httpdocs
+modman deploy-all
+
